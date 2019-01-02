@@ -5,7 +5,7 @@ const mutations = {
     state.userInfo = payload;
   },
   [types.UPDATE_USER_INFO](state, payload) {
-    // state.userInfo = Object(state, payload)
+    // state.userInfo = Object.assign(state, payload)
     state.userInfo = {...state, ...payload}
   },
 };

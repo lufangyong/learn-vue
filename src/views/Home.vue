@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <div class="svg-wrapper" @click="handlerLike">
       <svg-icon icon-class="like" class-name="icon-like"></svg-icon>
     </div>
+    <router-link to="/login">
+      <el-button>登录</el-button>
+    </router-link>
   </div>
 </template>
 

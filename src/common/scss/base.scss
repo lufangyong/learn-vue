@@ -1,0 +1,21 @@
+// 配合使用 normalize.css 和 reset.css 来重置一些样式问题
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: navajowhite;
+}
+
+// 清楚浮动
+.clear-fix {
+  display: inline-block;
+  &::after {
+    display: block;
+    content: ' ';
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}

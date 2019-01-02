@@ -8,32 +8,29 @@ import 'nprogress/nprogress.css'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'history',// 需要服务端支持
+  mode: 'history',
   base: process.env.BASE_URL, // 应用的基路径
   scrollBehavior: () => ({y: 0}),
   routes: RouterConfig.concat(CommonRouters)
 })
 
-/**
- * 路由前置守卫
- * 如果没有登录则跳转登录页
- */
-/*router.beforeEach((to, from, next) => {
-  let hasLogin = localStorage.getItem("accessToken") ? true : false;
-  if (!hasLogin) {
-    if (to.path == '/login') {  // 防止触发死循环
+router.beforeEach((to, from, next) => {
+  const isLogin = !!localStorage.getItem('accessToken')
+  const noProgressList = ['/login', '/about'] // 不需要进度条的路由
+
+  if (!isLogin) {
+    to.path === '/login' ? next() : next({path: '/login'}) // 防止死循环
+  } else {
+    if (!noProgressList.some(item => item === to.path)) {
+      NProgress.start()
+    }
+    // 判断权限
+    if (to.meta.auth) {
       next()
     } else {
-      next({path: '/login'});
+      to.path === '/403' ? next() : next({path: '/403'})
     }
-  } else {
-    next();
   }
-});*/
-
-router.beforeEach((to, from, next) => {
-  NProgress.start()
-  next()
 })
 
 router.afterEach(() => {

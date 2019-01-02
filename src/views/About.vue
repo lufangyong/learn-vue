@@ -2,7 +2,7 @@
   <div class="about">
     <h1>This is an about page</h1>
     <div>{{userInfo.name}}</div>
-    <button @click="modifyUserName">修改用户名</button>
+    <el-button @click="modifyUserName">修改用户名</el-button>
   </div>
 </template>
 
