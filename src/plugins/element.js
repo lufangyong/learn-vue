@@ -1,10 +1,27 @@
 import Vue from 'vue'
-import {Button, Select, Loading, MessageBox, Message} from 'element-ui';
+import {
+  Button,
+  Select,
+  Loading,
+  MessageBox,
+  Message,
+  Input,
+  Submenu,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  Container,
+  Aside,
+  Header,
+  Main,
+  Footer,
+  Scrollbar
+} from 'element-ui';
 
 // 全局配置对象
 // Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 
-[Button, Select].forEach(comp => {
+[Button, Select, Input, Submenu, Menu, MenuItem, MenuItemGroup, Container, Aside, Header, Main, Footer, Scrollbar].forEach(comp => {
   Vue.use(comp)
 })
 

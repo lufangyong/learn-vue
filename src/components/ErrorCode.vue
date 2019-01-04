@@ -3,17 +3,17 @@
     <div class="error-wrapper">
       <div class="clip">
         <div class="shadow">
-          <countTo class="digit" :startVal="6" :endVal="parseInt(code/100)" :duration='1000'></countTo>
+          <countTo class="digit" :startVal="6" :endVal="parseInt(code/100)" :duration='800'></countTo>
         </div>
       </div>
       <div class="clip">
         <div class="shadow">
-          <countTo class="digit" :startVal="9" :endVal="parseInt((code%100)/10)" :duration='2000'></countTo>
+          <countTo class="digit" :startVal="9" :endVal="parseInt((code%100)/10)" :duration='1600'></countTo>
         </div>
       </div>
       <div class="clip">
         <div class="shadow">
-          <countTo class="digit" :startVal="9" :endVal="parseInt(code%10)" :duration='3000'></countTo>
+          <countTo class="digit" :startVal="9" :endVal="parseInt(code%10)" :duration='2000'></countTo>
         </div>
       </div>
       <div class="msg">

@@ -16,7 +16,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const isLogin = !!localStorage.getItem('accessToken')
-  const noProgressList = ['/login', '/about'] // 不需要进度条的路由
+  const noProgressList = ['/login'] // 不需要进度条的路由
 
   if (!isLogin) {
     to.path === '/login' ? next() : next({path: '/login'}) // 防止死循环
