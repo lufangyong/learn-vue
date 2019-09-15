@@ -6,3 +6,6 @@
 - 学习 vue-router
 - 路由权限配置
 - 实现多页应用
+
+## 库
+- [canvas滑动验证码](https://github.com/yeild/jigsaw)

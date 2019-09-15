@@ -8,6 +8,7 @@
         <template slot="prepend">密&emsp;码</template>
       </el-input>
       <el-button class="btn" @click="login">登录</el-button>
+      <div id="captcha"></div>
     </div>
   </div>
 </template>
@@ -19,10 +20,32 @@
     },
     methods: {
       login() {
-        localStorage.setItem('accessToken', 'tt')
-        this.$router.push({
-          path: '/'
-        })
+        window.Captcha.init({
+        el: document.getElementById('captcha'),
+        onSuccess: () => {
+          this.$message({
+            message: '验证成功',
+            type: 'success'
+          });
+          localStorage.setItem('accessToken', 'tt')
+          this.$router.push({
+             path: '/'
+          })
+        },
+        onFail: () => { 
+          this.$message({
+            message: '警告哦，这是一条警告消息',
+            type: 'warning'
+          })
+        },
+        onRefresh: () => {
+          this.$message({
+            message: '警告哦，这是一条警告消息',
+            type: 'warning'
+          })
+        }
+      })
+      
       },
       press() {
         this.login()
@@ -55,6 +78,7 @@
     align-items: center;
     height: 100vh;
     .form {
+      position: relative;
       display: flex;
       flex-flow: column nowrap;
       justify-content: center;
@@ -70,6 +94,12 @@
     .btn {
       width: 400px;
       margin-top: 15px;
+    }
+    #captcha {
+      position: absolute !important;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0)
     }
   }
 </style>
